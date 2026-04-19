@@ -1,0 +1,580 @@
+# Online Portfolio Builder - Complete Project Documentation
+
+This document explains the complete working of the project, including:
+- project architecture
+- technology stack
+- all important files and what each file does
+- all implemented features
+- how data flows through the app
+- how to modify/extend the project safely
+- common project Q&A for viva/demo discussions
+
+-------------------------------------------------------------------------------
+1) Project Purpose
+-------------------------------------------------------------------------------
+
+This is a simple full-stack subject project for an "Online Portfolio Builder for Freelancers and Creators".
+
+Goal:
+- Let users register/login
+- Let logged-in users create and manage a portfolio
+- Show all portfolios on a discover page with filters
+- Keep implementation simple (Express + HTML/CSS/JS + browser localStorage)
+
+Important simplification:
+- No database is used.
+- Data is stored in browser localStorage for demo/learning purposes.
+
+-------------------------------------------------------------------------------
+2) Tech Stack
+-------------------------------------------------------------------------------
+
+Backend:
+- Node.js
+- Express (CommonJS)
+
+Frontend:
+- Multi-page HTML
+- CSS (shared base + page-specific styles)
+- Vanilla JavaScript
+
+Persistence:
+- localStorage (users, current session, portfolios)
+
+Design system:
+- Glassmorphism-based visual style
+- Responsive layouts for desktop/mobile
+- Motion/interaction layer (reveal, ripple, tilt, FAQ accordion)
+
+-------------------------------------------------------------------------------
+3) High-Level Architecture
+-------------------------------------------------------------------------------
+
+Flow:
+1. Express serves static assets from /public.
+2. Express maps page routes to files in /public/pages.
+3. Frontend JS handles auth, session, and portfolio logic via localStorage.
+4. Navbar visibility changes based on login state.
+5. Discover page reads stored portfolios and applies live filters.
+
+Route architecture:
+- Page routes: /, /register, /login, /dashboard, /discover
+- API routes: /api/status, /api/routes
+
+-------------------------------------------------------------------------------
+4) Top-Level Files (Root)
+-------------------------------------------------------------------------------
+
+4.1 package.json
+What it does:
+- Defines project metadata and scripts.
+- Sets entry point to server.js.
+- Contains dependencies:
+	- express: backend server
+	- nodemon: dev auto-reload (configured under dependencies here)
+
+Important scripts:
+- npm start -> node server.js
+- npm run dev -> nodemon server.js
+
+4.2 package-lock.json
+What it does:
+- Auto-generated dependency lock file.
+- Pins exact package versions for reproducible installs.
+
+4.3 server.js
+What it does:
+- Creates Express app.
+- Serves static files from /public.
+- Disables automatic static index fallback by using index: false.
+- Defines page routes and API endpoints.
+
+Detailed behavior:
+- app.use(express.static(..., { index: false }))
+	- static assets are served, but / does NOT auto-open public/index.html.
+- app.get("/") -> sends /public/pages/home.html
+- app.get("/register") -> register.html
+- app.get("/login") -> login.html
+- app.get("/dashboard") -> dashboard.html
+- app.get("/discover") -> discover.html
+- app.get("/api/status") -> health/status JSON with current ISO time
+- app.get("/api/routes") -> JSON listing known page/API routes
+
+4.4 .gitignore
+What it does:
+- Prevents committing dependencies/logs/build artifacts/env files/editor files.
+
+Important ignored groups:
+- node_modules/
+- *.log and logs/
+- .env, .env.* (except .env.example)
+- dist/, build/, coverage/
+- .vscode/, .idea/, OS junk files
+
+4.5 info.txt
+What it does:
+- This documentation file.
+
+-------------------------------------------------------------------------------
+5) Public Folder (Assets + Frontend App)
+-------------------------------------------------------------------------------
+
+Contents:
+- favicon.png
+- pages/ (active page templates)
+- css/ (active styles)
+- js/ (active scripts)
+- index.html, app.js, style.css (legacy single-page prototype)
+
+Note:
+- Current production flow uses /pages + /css + /js files through explicit Express routes.
+- Legacy files are still present but not used for the routed multi-page experience.
+
+5.1 favicon.png
+What it does:
+- Browser tab icon used on all main pages.
+
+5.2 public/index.html (legacy)
+What it does:
+- Early single-page app structure containing auth/dashboard/discover in one page.
+- Not used by current route-based UI because server root route maps to /pages/home.html.
+
+5.3 public/app.js (legacy)
+What it does:
+- Early all-in-one JS logic for auth/portfolio/discover in single-page style.
+- Contains same conceptual logic (localStorage, filters) but for legacy structure.
+- Not used in current routed pages.
+
+5.4 public/style.css (legacy)
+What it does:
+- Early styling for legacy single-page UI.
+- Not used by current /pages templates.
+
+-------------------------------------------------------------------------------
+6) Active HTML Pages (/public/pages)
+-------------------------------------------------------------------------------
+
+6.1 home.html (Route: /)
+Purpose:
+- Product-style landing page.
+
+Main sections:
+- Hero with core pitch and call-to-action buttons
+- Portfolio preview side card
+- Trust strip
+- Core features
+- How-it-works process steps
+- Audience section (professionals + clients)
+- Use-cases section
+- Why-this-works section
+- FAQ section
+- CTA section
+
+Scripts used:
+- storage.js (shared utils)
+- navbar.js (auth-aware nav visibility)
+- interactions.js (animations/interactions)
+
+6.2 register.html (Route: /register)
+Purpose:
+- User account creation page.
+
+Includes:
+- Story/marketing panel
+- Registration form with username + password
+- Link to login page
+
+Scripts used:
+- storage.js, navbar.js, interactions.js, register.js
+
+6.3 login.html (Route: /login)
+Purpose:
+- Existing user login page.
+
+Includes:
+- Story/benefits panel
+- Login form with username + password
+- Link to register page
+
+Scripts used:
+- storage.js, navbar.js, interactions.js, login.js
+
+6.4 dashboard.html (Route: /dashboard)
+Purpose:
+- Logged-in user portfolio editor.
+
+Includes:
+- Hero intro + welcome text (username)
+- Portfolio form fields:
+	- full name
+	- headline
+	- industry
+	- service type
+	- skills (comma-separated)
+	- work sample URL
+	- testimonial
+- Save button
+- Side panel with checklist and danger zone
+- Delete profile and delete account actions
+
+Scripts used:
+- storage.js, navbar.js, interactions.js, dashboard.js
+
+6.5 discover.html (Route: /discover)
+Purpose:
+- Browse all saved portfolios with live filtering.
+
+Includes:
+- Hero copy
+- Metric cards:
+	- total profiles
+	- active filters
+	- shown results
+- Filter rail:
+	- industry, service, skill inputs
+	- clear button
+- Results area:
+	- matching professionals list
+	- shown count text
+
+Scripts used:
+- storage.js, navbar.js, interactions.js, discover.js
+
+-------------------------------------------------------------------------------
+7) Active CSS Files (/public/css)
+-------------------------------------------------------------------------------
+
+7.1 base.css (Shared global system)
+Purpose:
+- Global design tokens and reusable primitives.
+
+Main responsibilities:
+- CSS variables (colors, glass surfaces, shadows)
+- Page background visuals and animated shapes
+- Shared navbar styling
+- Shared .layout and .card behavior
+- Shared typography/utilities (.subtext, .small-line)
+- Form controls (input/textarea)
+- Button system (.btn, .btn-link, danger variant)
+- Interaction helper classes (.reveal-on-scroll, .tilt-item, ripple animation)
+- Responsive navbar/layout rules
+
+Important note:
+- .card::after creates glass background layers.
+- This is core for the visual style across pages.
+
+7.2 home.css
+Purpose:
+- Styling for home.html sections.
+
+Main responsibilities:
+- Hero split layout
+- Showcase panel, animated pulse orb
+- Trust tags
+- Feature/process grids
+- Audience and FAQ cards
+- CTA panel
+- Responsive breakpoints for 1040px and 700px
+
+7.3 auth.css
+Purpose:
+- Shared styles for both login and register pages.
+
+Main responsibilities:
+- Split auth stage layout (story + form side)
+- Auth visual elements (orbits, mini cards, signal grid)
+- Form plate styling
+- Register/login-specific theme variants
+- Responsive collapse to single-column on smaller screens
+
+7.4 dashboard.css
+Purpose:
+- Dashboard-specific layout and component styling.
+
+Main responsibilities:
+- Dashboard hero block
+- Two-column workspace layout (editor + side panel)
+- Form grid and field spacing
+- Checklist and danger-zone panel styling
+- Sticky side panel on large screens
+- Ensures card pseudo-layers are contained to prevent overlap
+
+7.5 discover.css
+Purpose:
+- Discover page specific styles.
+
+Main responsibilities:
+- Hero and metric card layout
+- Filter rail and results panel glass styling
+- Sticky filter rail on desktop
+- Portfolio result card visuals
+- Skill chips and profile facts blocks
+- Responsive behavior for workbench and card grids
+
+-------------------------------------------------------------------------------
+8) Active JS Files (/public/js)
+-------------------------------------------------------------------------------
+
+8.1 storage.js
+Purpose:
+- Central localStorage utility and data access layer.
+
+Exports/Globals (by defining functions in script scope):
+- STORAGE_KEYS:
+	- opb_users
+	- opb_current_user_id
+	- opb_portfolios
+- readStorage / writeStorage
+- getUsers / getPortfolios
+- getCurrentUserId / getCurrentUser
+- setCurrentUser / clearCurrentUser
+- generateId(prefix)
+
+Why important:
+- All other feature scripts depend on these helpers.
+
+8.2 navbar.js
+Purpose:
+- Toggle navbar items based on auth state.
+
+How it works:
+- Reads current user via getCurrentUser().
+- Shows [data-auth-only='true'] items when logged in.
+- Shows [data-guest-only='true'] items when logged out.
+- Handles nav logout button click.
+
+8.3 register.js
+Purpose:
+- Register flow.
+
+Logic:
+1. Intercepts submit.
+2. Validates username/password not empty.
+3. Rejects duplicate username (case-insensitive).
+4. Creates user object with generated id.
+5. Stores user list to localStorage.
+6. Resets form + redirects to /login.
+
+8.4 login.js
+Purpose:
+- Login flow.
+
+Logic:
+1. Intercepts submit.
+2. Finds user by username (case-insensitive) + exact password.
+3. On success: sets current user id and redirects to /dashboard.
+4. On failure: alert invalid credentials.
+
+8.5 dashboard.js
+Purpose:
+- Portfolio CRUD-like behavior for logged-in user + account deletion.
+
+Major functions:
+- Auth guard:
+	- If no current user, redirect to /login.
+- loadPortfolio():
+	- Prefills form if user portfolio exists.
+- submit handler:
+	- Reads form, parses skills CSV into array.
+	- Upserts portfolio by userId.
+- setDeleteButtonState():
+	- Disables delete-profile button when no profile exists.
+- delete profile:
+	- Confirm -> remove only portfolio for current user.
+- delete account:
+	- Confirm -> remove user + user portfolio + clear session.
+	- Redirect to /register.
+- logout:
+	- Clear session and redirect /login.
+
+8.6 discover.js
+Purpose:
+- Live filtered portfolio browsing.
+
+Major behavior:
+- Reads all portfolios from localStorage.
+- Updates metrics:
+	- total profiles
+	- active filter count
+	- shown profile count
+- Filters by:
+	- industry text contains
+	- service type text contains
+	- skills combined text contains
+- Renders cards dynamically with:
+	- name + username tag
+	- headline
+	- industry/service facts
+	- skill chips
+	- work sample link
+	- testimonial fallback text
+- Clear filters button resets inputs and rerenders.
+
+8.7 interactions.js
+Purpose:
+- Shared visual interaction behaviors.
+
+Features:
+- Reveal-on-scroll animation via IntersectionObserver
+- Button ripple effect on click
+- Mouse-based tilt effect on selected cards
+- FAQ accordion (single open item at a time)
+- Honors reduced-motion preference for accessibility
+
+-------------------------------------------------------------------------------
+9) Implemented Features Summary
+-------------------------------------------------------------------------------
+
+Auth and session:
+- User registration
+- User login
+- Session persistence via CURRENT_USER key
+- Logout
+
+Portfolio management:
+- Create portfolio
+- Update portfolio
+- Auto-prefill on dashboard
+- Delete profile only
+- Delete full account (user + portfolio)
+
+Discover/search:
+- List all portfolios
+- Filters by industry/service/skill
+- Live metric updates (total, active filters, shown)
+- Clear filters action
+
+UI/UX:
+- Multi-page product-style design
+- Glassmorphism design system
+- Responsive layouts
+- Motion and interactions
+- Auth-aware navbar controls
+- Favicon on all active pages
+
+Backend visibility:
+- Express page routes for teacher/demo clarity
+- /api/status and /api/routes demo endpoints
+
+-------------------------------------------------------------------------------
+10) Data Model (localStorage)
+-------------------------------------------------------------------------------
+
+Key: opb_users
+Value: Array<User>
+User shape:
+- id: string
+- username: string
+- password: string (plain text in this demo)
+
+Key: opb_current_user_id
+Value: string user id
+
+Key: opb_portfolios
+Value: Array<Portfolio>
+Portfolio shape:
+- id: string
+- userId: string
+- username: string
+- fullName: string
+- headline: string
+- industry: string
+- serviceType: string
+- skills: string[]
+- sampleLink: string
+- testimonial: string
+
+Security note for explanation:
+- Passwords are not hashed because this is a subject demo with localStorage.
+
+-------------------------------------------------------------------------------
+11) How To Run
+-------------------------------------------------------------------------------
+
+1. Install dependencies:
+	 npm install
+
+2. Start server:
+	 npm start
+
+3. Open:
+	 http://localhost:3000
+
+Dev mode:
+- npm run dev
+
+-------------------------------------------------------------------------------
+12) How To Modify Safely
+-------------------------------------------------------------------------------
+
+12.1 Add a new page
+1. Create HTML in /public/pages.
+2. Add CSS file if needed in /public/css.
+3. Add route in server.js using res.sendFile(...).
+4. Add nav link in page headers if required.
+
+12.2 Add a new portfolio field
+1. Add input field in dashboard.html.
+2. Update dashboard.js:
+	 - read field on submit
+	 - include in portfolioData
+	 - prefill in loadPortfolio()
+3. Update discover.js card rendering if field should be visible.
+
+12.3 Change storage keys
+- Update STORAGE_KEYS in storage.js.
+- Migrate old data manually if backward compatibility matters.
+
+12.4 Change theme globally
+- Update variables and shared primitives in base.css first.
+- Then tune page-level overrides in home/auth/dashboard/discover CSS files.
+
+12.5 Remove legacy files
+- You can remove public/index.html, public/app.js, public/style.css if not needed,
+	but ensure server root route still points to /pages/home.html.
+
+-------------------------------------------------------------------------------
+13) Common Viva / Project Questions and Answers
+-------------------------------------------------------------------------------
+
+Q1: Why Express if most logic is on frontend?
+A: Express demonstrates backend routing and server setup, which is required for full-stack subject evaluation, while keeping complexity low.
+
+Q2: Why localStorage instead of database?
+A: To keep the project easy to understand and demo quickly. It removes DB setup overhead for a subject-level project.
+
+Q3: How does authentication work?
+A: Login checks username/password from localStorage users array. On success it stores current user id in localStorage and uses it as session state.
+
+Q4: How are portfolios connected to users?
+A: Each portfolio object stores userId and username, and dashboard upserts by current userId.
+
+Q5: How does Discover filtering work?
+A: It does case-insensitive contains matching on industry, serviceType, and skills text from stored portfolios.
+
+Q6: What backend APIs exist?
+A: /api/status and /api/routes for status and route visibility.
+
+Q7: What are project limitations?
+A:
+- localStorage is browser-local and not multi-device
+- no password hashing
+- no server-side validation/database
+- suitable for demo, not production
+
+-------------------------------------------------------------------------------
+14) Suggested Future Improvements
+-------------------------------------------------------------------------------
+
+If this project is extended later:
+- Add real database (MongoDB/PostgreSQL)
+- Add secure auth (hashed passwords + sessions/JWT)
+- Add backend validation and error handling
+- Add profile image upload
+- Add pagination/sorting on Discover
+- Add unit/integration tests
+- Remove or archive legacy files
+
+-------------------------------------------------------------------------------
+End of Documentation
+-------------------------------------------------------------------------------
