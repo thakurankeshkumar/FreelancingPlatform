@@ -1,45 +1,46 @@
 .home-page .hero {
-  min-height: 54vh;
+  min-height: 62vh;
   display: grid;
   align-content: center;
-  gap: 14px;
+  gap: 18px;
   background:
-    linear-gradient(120deg, rgba(255, 241, 217, 0.92), rgba(238, 253, 247, 0.92)),
+    linear-gradient(115deg, rgba(227, 239, 255, 0.95), rgba(248, 251, 255, 0.95)),
     repeating-linear-gradient(
-      -45deg,
-      rgba(255, 255, 255, 0.4) 0px,
-      rgba(255, 255, 255, 0.4) 12px,
-      rgba(255, 255, 255, 0.1) 12px,
-      rgba(255, 255, 255, 0.1) 24px
+      0deg,
+      rgba(15, 78, 168, 0.04) 0px,
+      rgba(15, 78, 168, 0.04) 1px,
+      transparent 1px,
+      transparent 28px
     );
+  border: 1px solid #ccdaef;
 }
 
 .home-page .badge {
   margin: 0;
   width: fit-content;
-  padding: 6px 10px;
-  border-radius: 999px;
+  padding: 6px 11px;
+  border-radius: 6px;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #744025;
-  background: rgba(255, 255, 255, 0.65);
+  color: #18325d;
+  background: #e8f0ff;
 }
 
 .home-page .hero h1 {
   margin: 0;
-  font-size: clamp(34px, 6vw, 68px);
-  line-height: 1.02;
-  max-width: 14ch;
-  letter-spacing: -0.02em;
+  font-size: clamp(36px, 6.6vw, 84px);
+  line-height: 1.01;
+  max-width: 13ch;
+  letter-spacing: -0.015em;
 }
 
 .home-page .hero p {
   margin: 0;
-  max-width: 62ch;
-  color: #5b4e47;
-  font-size: clamp(16px, 2.1vw, 19px);
+  max-width: 70ch;
+  color: #4e5f79;
+  font-size: clamp(17px, 2.2vw, 21px);
   line-height: 1.7;
 }
 
@@ -50,19 +51,19 @@
 }
 
 .home-page .hero-tags span {
-  border: 1px solid #e7d2bd;
-  background: #fff8ef;
-  color: #6e5144;
-  border-radius: 999px;
-  padding: 6px 10px;
+  border: 1px solid #d3deef;
+  background: #f4f8ff;
+  color: #334763;
+  border-radius: 8px;
+  padding: 6px 11px;
   font-size: 13px;
   font-weight: 700;
 }
 
 .home-page .hero-actions {
-  margin-top: 4px;
+  margin-top: 8px;
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
@@ -73,16 +74,16 @@
 }
 
 .home-page .grid-two article {
-  border-radius: 16px;
-  border: 1px solid #f0dfcf;
+  border-radius: 12px;
+  border: 1px solid #d7e0ef;
   padding: 18px;
-  background: linear-gradient(180deg, #fffdfa, #fff8ef);
+  background: linear-gradient(180deg, #ffffff, #f8fbff);
 }
 
 .home-page .grid-two h2 {
   margin-top: 0;
-  margin-bottom: 8px;
-  font-size: 23px;
+  margin-bottom: 10px;
+  font-size: 24px;
 }
 
 .home-page ol,
@@ -93,16 +94,108 @@
 
 .home-page li {
   margin-bottom: 8px;
-  color: #5d4f47;
+  color: #4f5e74;
   line-height: 1.5;
+}
+
+.home-page .features h2,
+.home-page .faq h2,
+.home-page .cta h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.home-page .feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.home-page .feature-item {
+  border: 1px solid #d8e1f0;
+  border-radius: 12px;
+  padding: 14px;
+  background: #fbfdff;
+}
+
+.home-page .feature-item h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.home-page .feature-item p {
+  margin: 0;
+  color: #52627a;
+  line-height: 1.55;
+}
+
+.home-page .faq-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.home-page .faq-list article {
+  border-radius: 12px;
+  border: 1px solid #dbe3f0;
+  background: #ffffff;
+  padding: 14px;
+}
+
+.home-page .faq-list h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.home-page .faq-list p {
+  margin: 0;
+  color: #52627a;
+  line-height: 1.55;
+}
+
+.home-page .cta {
+  background:
+    linear-gradient(120deg, #edf3ff, #f7f9ff),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(15, 78, 168, 0.05) 0px,
+      rgba(15, 78, 168, 0.05) 10px,
+      transparent 10px,
+      transparent 20px
+    );
+  border-color: #cfd9ec;
+}
+
+.home-page .cta p {
+  margin: 0;
+  color: #4f617e;
+  max-width: 60ch;
+}
+
+.home-page .cta .hero-actions {
+  margin-top: 12px;
 }
 
 @media (max-width: 900px) {
   .home-page .hero {
-    min-height: 48vh;
+    min-height: 52vh;
+  }
+
+  .home-page .feature-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .home-page .faq-list {
+    grid-template-columns: 1fr;
   }
 
   .home-page .grid-two {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-page .feature-grid {
     grid-template-columns: 1fr;
   }
 }

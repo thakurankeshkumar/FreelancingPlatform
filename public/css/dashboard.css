@@ -1,7 +1,7 @@
 .dashboard-page .layout {
   grid-template-columns: minmax(0, 1fr);
-  max-width: 1100px;
-  margin: 0 auto;
+  max-width: 100vw;
+  margin: 0;
 }
 
 .dashboard-page h1,
@@ -10,17 +10,18 @@
 }
 
 .dashboard-page .card:first-child {
-  background: linear-gradient(120deg, #fff0df, #ffe9d7);
-  border-color: #f1d6bd;
+  background: linear-gradient(135deg, #eaf2ff, #f4f8ff);
+  border-color: #cfdaec;
 }
 
 .dashboard-page .card:last-child {
-  background: linear-gradient(180deg, #fffefc, #fff9f2);
+  background: linear-gradient(180deg, #ffffff, #f8fbff);
+  border-color: #d5dfef;
 }
 
 .dashboard-page #welcome-text {
   font-weight: 700;
-  font-size: 16px;
+  font-size: 17px;
 }
 
 .dashboard-page textarea {
@@ -30,12 +31,12 @@
 
 @media (min-width: 980px) {
   .dashboard-page #portfolio-form {
-    grid-template-columns: 1fr 1fr;
-    gap: 14px 18px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
   }
 
   .dashboard-page #portfolio-form textarea,
   .dashboard-page #portfolio-form button {
-    grid-column: span 2;
+    grid-column: span 3;
   }
 }
