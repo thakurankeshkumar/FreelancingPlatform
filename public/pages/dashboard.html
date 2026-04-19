@@ -30,57 +30,87 @@
       </nav>
     </header>
 
-    <main class="layout">
-      <section class="card intro-anim">
-        <h1>My Portfolio Dashboard</h1>
-        <p id="welcome-text" class="subtext"></p>
+    <main class="layout dashboard-layout">
+      <section class="card dashboard-hero intro-anim">
+        <div class="hero-copy">
+          <p class="hero-kicker">Portfolio Studio</p>
+          <h1>Design a profile clients can trust in under five minutes.</h1>
+          <p id="welcome-text" class="subtext"></p>
+        </div>
+        <div class="hero-pills">
+          <span>Fast edits</span>
+          <span>Public discovery</span>
+          <span>Skill-first profile</span>
+        </div>
       </section>
 
-      <section class="card intro-anim delay-1">
-        <h2>Create or Update Portfolio</h2>
-        <p class="subtext form-help">Fill each section below and save your profile. You can edit anytime.</p>
-        <form id="portfolio-form" class="form-grid">
-          <div class="field">
-            <label for="full-name">Full Name</label>
-            <input id="full-name" type="text" required />
-          </div>
+      <section class="dashboard-workspace intro-anim delay-1">
+        <article class="card editor-panel">
+          <h2>Create or Update Portfolio</h2>
+          <p class="subtext form-help">Fill each section below and save your profile. You can edit anytime.</p>
 
-          <div class="field">
-            <label for="headline">Professional Headline</label>
-            <input id="headline" type="text" required />
-          </div>
+          <form id="portfolio-form" class="form-grid">
+            <div class="field">
+              <label for="full-name">Full Name</label>
+              <input id="full-name" type="text" required />
+            </div>
 
-          <div class="field">
-            <label for="industry">Industry</label>
-            <input id="industry" type="text" required />
-          </div>
+            <div class="field">
+              <label for="headline">Professional Headline</label>
+              <input id="headline" type="text" required />
+            </div>
 
-          <div class="field">
-            <label for="service-type">Service Type</label>
-            <input id="service-type" type="text" required />
-          </div>
+            <div class="field">
+              <label for="industry">Industry</label>
+              <input id="industry" type="text" required />
+            </div>
 
-          <div class="field">
-            <label for="skills">Skills (comma separated)</label>
-            <input id="skills" type="text" required />
-          </div>
+            <div class="field">
+              <label for="service-type">Service Type</label>
+              <input id="service-type" type="text" required />
+            </div>
 
-          <div class="field">
-            <label for="sample-link">Work Sample Link</label>
-            <input id="sample-link" type="url" required />
-          </div>
+            <div class="field">
+              <label for="skills">Skills (comma separated)</label>
+              <input id="skills" type="text" required />
+            </div>
 
-          <div class="field field-wide">
-            <label for="testimonial">Client Testimonial</label>
-            <textarea id="testimonial" rows="4"></textarea>
-          </div>
+            <div class="field">
+              <label for="sample-link">Work Sample Link</label>
+              <input id="sample-link" type="url" required />
+            </div>
 
-          <div class="form-actions field-wide">
-            <button class="btn" type="submit">Save Portfolio</button>
-            <button id="delete-profile-btn" class="btn-link danger" type="button">Delete My Profile</button>
-            <button id="delete-account-btn" class="btn-link danger" type="button">Delete My Account</button>
-          </div>
-        </form>
+            <div class="field field-wide">
+              <label for="testimonial">Client Testimonial</label>
+              <textarea id="testimonial" rows="4"></textarea>
+            </div>
+
+            <div class="form-actions field-wide">
+              <button class="btn" type="submit">Save Portfolio</button>
+            </div>
+          </form>
+        </article>
+
+        <aside class="card side-panel">
+          <section class="panel-block">
+            <h3>Publishing Checklist</h3>
+            <ul class="checklist">
+              <li>Add a clear headline with your specialization.</li>
+              <li>List 4 to 8 skills that clients actually search.</li>
+              <li>Include one strong work sample link.</li>
+              <li>Attach a testimonial to increase trust.</li>
+            </ul>
+          </section>
+
+          <section class="panel-block danger-zone">
+            <h3>Danger Zone</h3>
+            <p class="subtext">These actions are permanent and cannot be undone.</p>
+            <div class="danger-actions">
+              <button id="delete-profile-btn" class="btn-link danger" type="button">Delete My Profile</button>
+              <button id="delete-account-btn" class="btn-link danger" type="button">Delete My Account</button>
+            </div>
+          </section>
+        </aside>
       </section>
     </main>
 
