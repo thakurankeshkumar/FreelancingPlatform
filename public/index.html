@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Portfolio Builder</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Online Portfolio Builder</h1>
+      <p>For Freelancers and Creators</p>
+    </header>
+
+    <main class="container">
+      <section id="auth-section" class="card">
+        <h2>Register / Login</h2>
+
+        <div class="form-grid">
+          <div>
+            <h3>Register</h3>
+            <form id="register-form">
+              <label for="reg-username">Username</label>
+              <input id="reg-username" type="text" required />
+
+              <label for="reg-password">Password</label>
+              <input id="reg-password" type="password" required />
+
+              <button type="submit">Create Account</button>
+            </form>
+          </div>
+
+          <div>
+            <h3>Login</h3>
+            <form id="login-form">
+              <label for="login-username">Username</label>
+              <input id="login-username" type="text" required />
+
+              <label for="login-password">Password</label>
+              <input id="login-password" type="password" required />
+
+              <button type="submit">Login</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="dashboard-section" class="card hidden">
+        <div class="dashboard-head">
+          <h2>Dashboard</h2>
+          <div>
+            <span id="welcome-text"></span>
+            <button id="logout-btn" class="secondary">Logout</button>
+          </div>
+        </div>
+
+        <h3>Create / Update Your Portfolio</h3>
+        <form id="portfolio-form" class="form-stack">
+          <label for="full-name">Full Name</label>
+          <input id="full-name" type="text" required />
+
+          <label for="headline">Professional Headline</label>
+          <input id="headline" type="text" placeholder="Example: Graphic Designer" required />
+
+          <label for="industry">Industry</label>
+          <input id="industry" type="text" placeholder="Example: Design" required />
+
+          <label for="service-type">Service Type</label>
+          <input id="service-type" type="text" placeholder="Example: Logo Design" required />
+
+          <label for="skills">Skills (comma separated)</label>
+          <input id="skills" type="text" placeholder="Photoshop, Branding, UI" required />
+
+          <label for="sample-link">Work Sample Link</label>
+          <input id="sample-link" type="url" placeholder="https://..." required />
+
+          <label for="testimonial">Client Testimonial</label>
+          <textarea id="testimonial" rows="4" placeholder="Client feedback..."></textarea>
+
+          <button type="submit">Save Portfolio</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Find Professionals</h2>
+
+        <div class="filters">
+          <input id="filter-industry" type="text" placeholder="Filter by industry" />
+          <input id="filter-service" type="text" placeholder="Filter by service" />
+          <input id="filter-skill" type="text" placeholder="Filter by skill" />
+          <button id="clear-filters" class="secondary">Clear</button>
+        </div>
+
+        <div id="portfolio-list" class="portfolio-list"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

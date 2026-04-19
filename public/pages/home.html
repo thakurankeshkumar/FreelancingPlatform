@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Builder | Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.css" />
+      <link rel="stylesheet" href="/css/base.css" />
+      <link rel="stylesheet" href="/css/home.css" />
+  </head>
+    <body class="home-page">
+    <div class="background-shape bg-one"></div>
+    <div class="background-shape bg-two"></div>
+
+    <header class="navbar">
+      <a class="brand" href="/">Portfolio Builder</a>
+      <nav>
+        <a href="/discover">Discover</a>
+        <a href="/login">Login</a>
+        <a class="btn-link" href="/register">Register</a>
+      </nav>
+    </header>
+
+    <main class="layout">
+      <section class="hero card intro-anim">
+        <p class="badge">Frontend + Backend Subject Project</p>
+        <h1>Build a Simple Professional Portfolio in Minutes</h1>
+        <p>
+          Freelancers and creators can register, login, create a portfolio,
+          and showcase skills, services, work samples, and testimonials.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="/register">Create Account</a>
+          <a class="btn secondary" href="/discover">Browse Portfolios</a>
+        </div>
+      </section>
+
+      <section class="card grid-two intro-anim delay-1">
+        <article>
+          <h2>How It Works</h2>
+          <ol>
+            <li>Register with a simple username and password</li>
+            <li>Login and create your portfolio details</li>
+            <li>Clients discover profiles using filters</li>
+          </ol>
+        </article>
+        <article>
+          <h2>Backend Endpoints</h2>
+          <ul>
+            <li>Page route: /dashboard</li>
+            <li>Page route: /discover</li>
+            <li>API route: /api/status</li>
+            <li>API route: /api/routes</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

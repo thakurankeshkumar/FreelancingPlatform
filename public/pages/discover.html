@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Builder | Discover</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/discover.css" />
+  </head>
+  <body class="discover-page">
+    <div class="background-shape bg-one"></div>
+    <div class="background-shape bg-two"></div>
+
+    <header class="navbar">
+      <a class="brand" href="/">Portfolio Builder</a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/login">Login</a>
+      </nav>
+    </header>
+
+    <main class="layout">
+      <section class="card intro-anim">
+        <h1>Discover Professionals</h1>
+        <p class="subtext">Filter portfolios by industry, service type, or skills.</p>
+
+        <div class="filters">
+          <input id="filter-industry" type="text" placeholder="Filter by industry" />
+          <input id="filter-service" type="text" placeholder="Filter by service" />
+          <input id="filter-skill" type="text" placeholder="Filter by skill" />
+          <button id="clear-filters" class="btn secondary" type="button">Clear</button>
+        </div>
+      </section>
+
+      <section class="card intro-anim delay-1">
+        <div id="portfolio-list" class="portfolio-list"></div>
+      </section>
+    </main>
+
+    <script src="/js/storage.js"></script>
+    <script src="/js/discover.js"></script>
+  </body>
+</html>

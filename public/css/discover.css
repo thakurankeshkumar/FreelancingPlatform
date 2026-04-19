@@ -1,0 +1,57 @@
+.discover-page .layout {
+  grid-template-columns: 1fr;
+}
+
+.discover-page .filters {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.discover-page .portfolio-list {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.discover-page .portfolio-item {
+  border: 1px solid #d3dfed;
+  border-radius: 12px;
+  padding: 14px;
+  background: #fff;
+  height: 100%;
+}
+
+.discover-page .portfolio-item h3 {
+  margin: 0 0 8px;
+}
+
+.discover-page .portfolio-item p {
+  margin: 6px 0;
+}
+
+.discover-page .tag {
+  font-size: 13px;
+  color: #0f766e;
+  background: #d1fae5;
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+.discover-page .empty {
+  margin: 0;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .discover-page .filters {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .discover-page .filters {
+    grid-template-columns: 1fr;
+  }
+}

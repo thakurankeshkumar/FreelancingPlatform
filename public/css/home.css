@@ -1,0 +1,61 @@
+.home-page .hero {
+  min-height: 38vh;
+  display: grid;
+  align-content: center;
+}
+
+.home-page .hero h1 {
+  margin: 10px 0 10px;
+  font-size: clamp(30px, 4.8vw, 48px);
+  line-height: 1.1;
+  max-width: 18ch;
+}
+
+.home-page .hero p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.home-page .hero-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.home-page .badge {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 800;
+  color: #0f3d63;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.home-page .grid-two {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 18px;
+}
+
+.home-page .grid-two h2 {
+  margin-top: 0;
+}
+
+.home-page .grid-two article {
+  border: 1px dashed #c8d7e8;
+  border-radius: 12px;
+  padding: 14px;
+  background: #ffffffcc;
+}
+
+.home-page li {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 900px) {
+  .home-page .grid-two {
+    grid-template-columns: 1fr;
+  }
+}

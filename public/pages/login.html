@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Builder | Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/auth.css" />
+  </head>
+  <body class="auth-page">
+    <div class="background-shape bg-one"></div>
+    <div class="background-shape bg-two"></div>
+
+    <header class="navbar">
+      <a class="brand" href="/">Portfolio Builder</a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/register">Register</a>
+        <a href="/discover">Discover</a>
+      </nav>
+    </header>
+
+    <main class="layout center-layout">
+      <section class="card auth-card intro-anim">
+        <h1>Login</h1>
+        <p class="subtext">Use your registered username and password.</p>
+
+        <form id="login-form" class="form-stack">
+          <label for="login-username">Username</label>
+          <input id="login-username" type="text" required />
+
+          <label for="login-password">Password</label>
+          <input id="login-password" type="password" required />
+
+          <button type="submit" class="btn">Login</button>
+        </form>
+
+        <p class="small-line">
+          New user?
+          <a href="/register">Create Account</a>
+        </p>
+      </section>
+    </main>
+
+    <script src="/js/storage.js"></script>
+    <script src="/js/login.js"></script>
+  </body>
+</html>

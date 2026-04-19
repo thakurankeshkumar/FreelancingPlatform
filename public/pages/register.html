@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Builder | Register</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/auth.css" />
+  </head>
+  <body class="auth-page">
+    <div class="background-shape bg-one"></div>
+    <div class="background-shape bg-two"></div>
+
+    <header class="navbar">
+      <a class="brand" href="/">Portfolio Builder</a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/login">Login</a>
+        <a href="/discover">Discover</a>
+      </nav>
+    </header>
+
+    <main class="layout center-layout">
+      <section class="card auth-card intro-anim">
+        <h1>Create Account</h1>
+        <p class="subtext">Your data is stored in browser local storage for this demo.</p>
+
+        <form id="register-form" class="form-stack">
+          <label for="reg-username">Username</label>
+          <input id="reg-username" type="text" required />
+
+          <label for="reg-password">Password</label>
+          <input id="reg-password" type="password" required />
+
+          <button type="submit" class="btn">Register</button>
+        </form>
+
+        <p class="small-line">
+          Already registered?
+          <a href="/login">Go to Login</a>
+        </p>
+      </section>
+    </main>
+
+    <script src="/js/storage.js"></script>
+    <script src="/js/register.js"></script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Builder | Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
+  </head>
+  <body class="dashboard-page">
+    <div class="background-shape bg-one"></div>
+    <div class="background-shape bg-two"></div>
+
+    <header class="navbar">
+      <a class="brand" href="/">Portfolio Builder</a>
+      <nav>
+        <a href="/discover">Discover</a>
+        <button id="logout-btn" class="btn-link danger" type="button">Logout</button>
+      </nav>
+    </header>
+
+    <main class="layout">
+      <section class="card intro-anim">
+        <h1>My Portfolio Dashboard</h1>
+        <p id="welcome-text" class="subtext"></p>
+      </section>
+
+      <section class="card intro-anim delay-1">
+        <h2>Create or Update Portfolio</h2>
+        <form id="portfolio-form" class="form-stack">
+          <label for="full-name">Full Name</label>
+          <input id="full-name" type="text" required />
+
+          <label for="headline">Professional Headline</label>
+          <input id="headline" type="text" required />
+
+          <label for="industry">Industry</label>
+          <input id="industry" type="text" required />
+
+          <label for="service-type">Service Type</label>
+          <input id="service-type" type="text" required />
+
+          <label for="skills">Skills (comma separated)</label>
+          <input id="skills" type="text" required />
+
+          <label for="sample-link">Work Sample Link</label>
+          <input id="sample-link" type="url" required />
+
+          <label for="testimonial">Client Testimonial</label>
+          <textarea id="testimonial" rows="4"></textarea>
+
+          <button class="btn" type="submit">Save Portfolio</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="/js/storage.js"></script>
+    <script src="/js/dashboard.js"></script>
+  </body>
+</html>

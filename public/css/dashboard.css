@@ -1,0 +1,37 @@
+.dashboard-page .layout {
+  grid-template-columns: 1fr;
+}
+
+.dashboard-page h1,
+.dashboard-page h2 {
+  margin-top: 0;
+}
+
+.dashboard-page .card:first-child {
+  background: linear-gradient(120deg, #e6f7ff, #f0fdfa);
+}
+
+.dashboard-page .card:last-child {
+  background: linear-gradient(180deg, #ffffff, #f8fbff);
+}
+
+.dashboard-page #welcome-text {
+  font-weight: 700;
+}
+
+.dashboard-page textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+@media (min-width: 980px) {
+  .dashboard-page #portfolio-form {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 16px;
+  }
+
+  .dashboard-page #portfolio-form textarea,
+  .dashboard-page #portfolio-form button {
+    grid-column: span 2;
+  }
+}
