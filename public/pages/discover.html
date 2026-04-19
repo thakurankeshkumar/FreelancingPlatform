@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio Builder | Discover</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,30 +23,86 @@
       <nav>
         <a class="nav-link" href="/">Home</a>
         <a class="nav-link nav-active" href="/discover">Discover</a>
-        <a class="nav-link" href="/dashboard">Dashboard</a>
-        <a class="btn-link" href="/login">Login</a>
+        <a class="nav-link" href="/dashboard" data-auth-only="true">Dashboard</a>
+        <a class="nav-link" href="/login" data-guest-only="true">Login</a>
+        <a class="btn-link" href="/register" data-guest-only="true">Register</a>
+        <button id="logout-btn" class="btn-link danger" type="button" data-auth-only="true">Logout</button>
       </nav>
     </header>
 
     <main class="layout">
-      <section class="card intro-anim">
-        <h1>Discover Professionals</h1>
-        <p class="subtext">Filter portfolios by industry, service type, or skills.</p>
+      <section class="discover-hero intro-anim">
+        <div class="discover-hero-copy">
+          <p class="discover-kicker">Talent marketplace</p>
+          <h1>Find the right freelancer without scrolling forever.</h1>
+          <p class="subtext">
+            Browse curated profiles, compare services, and filter creators by
+            the skills that matter most to your project.
+          </p>
+        </div>
 
-        <div class="filters">
-          <input id="filter-industry" type="text" placeholder="Filter by industry" />
-          <input id="filter-service" type="text" placeholder="Filter by service" />
-          <input id="filter-skill" type="text" placeholder="Filter by skill" />
-          <button id="clear-filters" class="btn secondary" type="button">Clear</button>
+        <div class="discover-metrics">
+          <article class="metric-card metric-card-total">
+            <strong id="discover-total-count">0</strong>
+            <span>Total profiles</span>
+          </article>
+          <article class="metric-card metric-card-filters">
+            <strong id="discover-active-filters">0</strong>
+            <span>Active filters</span>
+          </article>
+          <article class="metric-card metric-card-results">
+            <strong id="discover-shown-count">0</strong>
+            <span>Search results</span>
+          </article>
         </div>
       </section>
 
-      <section class="card intro-anim delay-1">
-        <div id="portfolio-list" class="portfolio-list"></div>
+      <section class="discover-workbench intro-anim delay-1">
+        <aside class="discover-rail">
+          <div class="discover-rail-head">
+            <p class="discover-rail-label">Refine search</p>
+            <h2>Filter by what matters</h2>
+            <p class="subtext">
+              Use the filters to narrow down portfolios by industry, service,
+              or skill set.
+            </p>
+          </div>
+
+          <div class="filters">
+            <label class="discover-filter">
+              <span>Industry</span>
+              <input id="filter-industry" type="text" placeholder="e.g. Design" />
+            </label>
+            <label class="discover-filter">
+              <span>Service</span>
+              <input id="filter-service" type="text" placeholder="e.g. Branding" />
+            </label>
+            <label class="discover-filter">
+              <span>Skill</span>
+              <input id="filter-skill" type="text" placeholder="e.g. UI" />
+            </label>
+          </div>
+
+          <button id="clear-filters" class="btn secondary discover-clear" type="button">Clear Filters</button>
+        </aside>
+
+        <section class="discover-results">
+          <div class="discover-results-head">
+            <div>
+              <p class="discover-rail-label">Browse results</p>
+              <h2>Matching professionals</h2>
+            </div>
+            <p id="discover-result-count" class="result-count">Showing 0 of 0 profiles</p>
+          </div>
+
+          <div id="portfolio-list" class="portfolio-list"></div>
+        </section>
       </section>
     </main>
 
     <script src="/js/storage.js"></script>
+    <script src="/js/navbar.js"></script>
+    <script src="/js/interactions.js"></script>
     <script src="/js/discover.js"></script>
   </body>
 </html>

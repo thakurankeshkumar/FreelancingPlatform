@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio Builder | Login</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,34 +23,91 @@
       <nav>
         <a class="nav-link" href="/">Home</a>
         <a class="nav-link" href="/discover">Discover</a>
-        <a class="nav-link nav-active" href="/login">Login</a>
-        <a class="btn-link" href="/register">Register</a>
+        <a class="nav-link" href="/dashboard" data-auth-only="true">Dashboard</a>
+        <a class="nav-link nav-active" href="/login" data-guest-only="true">Login</a>
+        <a class="btn-link" href="/register" data-guest-only="true">Register</a>
+        <button id="logout-btn" class="btn-link danger" type="button" data-auth-only="true">Logout</button>
       </nav>
     </header>
 
     <main class="layout center-layout">
-      <section class="card auth-card intro-anim">
-        <h1>Login</h1>
-        <p class="subtext">Use your registered username and password.</p>
+      <section class="auth-stage intro-anim">
+        <aside class="auth-story auth-story-login">
+          <div class="auth-story-top">
+            <p class="auth-kicker">Welcome back</p>
+            <h1>Resume your portfolio workflow in one clean step.</h1>
+            <p class="subtext">
+              Open your saved profile, update your work, and stay ready for the
+              next client inquiry.
+            </p>
+          </div>
 
-        <form id="login-form" class="form-stack">
-          <label for="login-username">Username</label>
-          <input id="login-username" type="text" required />
+          <div class="auth-signal-grid">
+            <article>
+              <strong>Fast access</strong>
+              <span>Jump directly into your dashboard</span>
+            </article>
+            <article>
+              <strong>Low friction</strong>
+              <span>Simple username and password entry</span>
+            </article>
+            <article>
+              <strong>Portfolio control</strong>
+              <span>Update or remove your profile anytime</span>
+            </article>
+          </div>
 
-          <label for="login-password">Password</label>
-          <input id="login-password" type="password" required />
+          <div class="auth-mini-board">
+            <div>
+              <span class="mini-label">Status</span>
+              <strong>Portfolio Ready</strong>
+            </div>
+            <div>
+              <span class="mini-label">Visibility</span>
+              <strong>Discoverable</strong>
+            </div>
+            <div>
+              <span class="mini-label">Action</span>
+              <strong>Login to Continue</strong>
+            </div>
+          </div>
 
-          <button type="submit" class="btn">Login</button>
-        </form>
+          <p class="small-line auth-switch-line">
+            New here?
+            <a href="/register">Create Account</a>
+          </p>
+        </aside>
 
-        <p class="small-line">
-          New user?
-          <a href="/register">Create Account</a>
-        </p>
+        <section class="auth-form-stage">
+          <div class="auth-form-visual">
+            <div class="auth-orbit auth-orbit-one"></div>
+            <div class="auth-orbit auth-orbit-two"></div>
+            <div class="auth-orbit auth-orbit-three"></div>
+            <div class="auth-form-plate">
+              <p class="auth-kicker">Login</p>
+              <h2>Access your portfolio</h2>
+              <form id="login-form" class="auth-form">
+                <div class="field">
+                  <label for="login-username">Username</label>
+                  <input id="login-username" type="text" placeholder="Enter your username" required />
+                </div>
+
+                <div class="field">
+                  <label for="login-password">Password</label>
+                  <input id="login-password" type="password" placeholder="Enter your password" required />
+                </div>
+
+                <button type="submit" class="btn">Login</button>
+              </form>
+            </div>
+          </div>
+        </section>
       </section>
     </main>
 
     <script src="/js/storage.js"></script>
+    <script src="/js/navbar.js"></script>
+    <script src="/js/interactions.js"></script>
     <script src="/js/login.js"></script>
   </body>
 </html>

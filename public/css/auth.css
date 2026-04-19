@@ -3,40 +3,265 @@
   align-content: center;
 }
 
-.auth-page .auth-card {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: clamp(20px, 3.6vw, 32px);
+.auth-page .auth-stage {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: 20px;
+  align-items: stretch;
   position: relative;
-  overflow: hidden;
-  border-color: #cfd9ec;
 }
 
-.auth-page .auth-card::before {
+.auth-page .auth-stage::before {
   content: "";
   position: absolute;
-  inset: 0 0 auto 0;
+  inset: 18px 24px auto auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(15, 118, 110, 0.18), rgba(15, 118, 110, 0.02) 70%);
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+.auth-page .auth-stage-register::before {
+  inset: auto auto 18px 24px;
+  background: radial-gradient(circle, rgba(202, 138, 4, 0.18), rgba(202, 138, 4, 0.02) 70%);
+}
+
+.auth-page .auth-story,
+.auth-page .auth-form-stage {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-b);
+}
+
+.auth-page .auth-story {
+  display: grid;
+  align-content: center;
+  gap: 18px;
+  padding: clamp(24px, 4vw, 42px);
+  background:
+    linear-gradient(135deg, rgba(10, 27, 39, 0.98), rgba(12, 36, 50, 0.94)),
+    linear-gradient(180deg, rgba(15, 118, 110, 0.12), transparent);
+}
+
+.auth-page .auth-story-login {
+  background:
+    linear-gradient(135deg, rgba(10, 27, 39, 0.98), rgba(11, 33, 46, 0.94)),
+    linear-gradient(180deg, rgba(15, 78, 168, 0.12), transparent);
+}
+
+.auth-page .auth-story-register {
+  background:
+    linear-gradient(135deg, rgba(10, 27, 39, 0.98), rgba(12, 36, 50, 0.94)),
+    linear-gradient(180deg, rgba(202, 138, 4, 0.14), transparent);
+}
+
+.auth-page .auth-story-top {
+  display: grid;
+  gap: 12px;
+  max-width: 58ch;
+}
+
+.auth-page .auth-kicker {
+  margin: 0;
+  width: fit-content;
+  padding: 6px 11px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c4f9ef;
+  background: rgba(15, 118, 110, 0.22);
+}
+
+.auth-page .auth-stage h1,
+.auth-page .auth-stage h2 {
+  margin: 0;
+}
+
+.auth-page .auth-stage h1 {
+  font-size: clamp(32px, 4.8vw, 58px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  max-width: 14ch;
+}
+
+.auth-page .auth-stage h2 {
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.08;
+}
+
+.auth-page .auth-signal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.auth-page .auth-signal-grid article {
+  padding: 12px 12px 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: grid;
+  gap: 4px;
+}
+
+.auth-page .auth-signal-grid strong {
+  font-size: 14px;
+  color: #f4fffd;
+}
+
+.auth-page .auth-signal-grid span {
+  color: #b7cbc7;
+  line-height: 1.45;
+  font-size: 14px;
+}
+
+.auth-page .auth-mini-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding-top: 6px;
+}
+
+.auth-page .auth-mini-board div {
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.auth-page .mini-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #a8c3bf;
+}
+
+.auth-page .auth-mini-board strong {
+  font-size: 15px;
+  color: #f4fffd;
+}
+
+.auth-page .auth-switch-line {
+  margin: 0;
+}
+
+.auth-page .auth-form-stage {
+  padding: 18px;
+  background:
+    radial-gradient(circle at top right, rgba(15, 118, 110, 0.14), transparent 48%),
+    linear-gradient(180deg, rgba(10, 27, 39, 0.92), rgba(9, 22, 32, 0.96));
+}
+
+.auth-page .auth-form-visual {
+  position: relative;
+  min-height: 100%;
+  border-radius: 22px;
+  overflow: hidden;
+  padding: 22px;
+  display: grid;
+  align-items: center;
+}
+
+.auth-page .auth-orbit {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.auth-page .auth-orbit-one {
+  width: 240px;
+  height: 240px;
+  right: -70px;
+  top: -60px;
+  background: radial-gradient(circle, rgba(15, 118, 110, 0.2), rgba(15, 118, 110, 0.02) 70%);
+}
+
+.auth-page .auth-orbit-two {
+  width: 160px;
+  height: 160px;
+  left: -30px;
+  top: 40px;
+  background: radial-gradient(circle, rgba(202, 138, 4, 0.22), rgba(202, 138, 4, 0.03) 72%);
+}
+
+.auth-page .auth-orbit-three {
+  width: 120px;
+  height: 120px;
+  right: 30px;
+  bottom: 30px;
+  background: radial-gradient(circle, rgba(15, 78, 168, 0.14), rgba(15, 78, 168, 0.02) 72%);
+}
+
+.auth-page .auth-form-plate {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 14px;
+  padding: clamp(22px, 3.2vw, 34px);
+  border-radius: 24px;
+  background: rgba(10, 27, 39, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.22);
+}
+
+.auth-page .auth-note {
+  margin: 0;
+}
+
+.auth-page .auth-form {
+  display: grid;
+  gap: 14px;
+}
+
+.auth-page .field {
+  display: grid;
+  gap: 8px;
+}
+
+.auth-page .auth-form .btn {
   width: 100%;
-  height: 8px;
-  background: linear-gradient(90deg, #0f4ea8, #d9572b);
-}
-
-.auth-page .auth-card h1 {
-  margin-top: 0;
-  margin-bottom: 8px;
-  font-size: clamp(30px, 4.1vw, 42px);
-}
-
-.auth-page .auth-card .btn {
-  margin-top: 10px;
-  width: 100%;
-}
-
-.auth-page .small-line {
-  margin-top: 16px;
-  margin-bottom: 0;
+  margin-top: 4px;
+  padding-block: 14px;
 }
 
 .auth-page .subtext {
   max-width: 60ch;
+}
+
+@media (max-width: 1080px) {
+  .auth-page .auth-stage {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-page .auth-signal-grid,
+  .auth-page .auth-mini-board {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .auth-page .auth-story,
+  .auth-page .auth-form-stage {
+    border-radius: 18px;
+  }
+
+  .auth-page .auth-form-visual {
+    padding: 0;
+  }
+
+  .auth-page .auth-form-plate {
+    padding: 18px;
+    border-radius: 18px;
+  }
 }

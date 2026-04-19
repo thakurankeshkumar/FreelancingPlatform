@@ -4,15 +4,16 @@
   align-content: center;
   gap: 18px;
   background:
-    linear-gradient(115deg, rgba(227, 239, 255, 0.95), rgba(248, 251, 255, 0.95)),
+    linear-gradient(115deg, rgba(10, 27, 39, 0.98), rgba(12, 36, 50, 0.94)),
     repeating-linear-gradient(
       0deg,
-      rgba(15, 78, 168, 0.04) 0px,
-      rgba(15, 78, 168, 0.04) 1px,
+      rgba(15, 118, 110, 0.08) 0px,
+      rgba(15, 118, 110, 0.08) 1px,
       transparent 1px,
       transparent 28px
     );
-  border: 1px solid #ccdaef;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: clamp(18px, 3vw, 28px);
 }
 
 .home-page .badge {
@@ -24,8 +25,8 @@
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #18325d;
-  background: #e8f0ff;
+  color: #c4f9ef;
+  background: rgba(15, 118, 110, 0.22);
 }
 
 .home-page .hero h1 {
@@ -39,7 +40,7 @@
 .home-page .hero p {
   margin: 0;
   max-width: 70ch;
-  color: #4e5f79;
+  color: #a8c3bf;
   font-size: clamp(17px, 2.2vw, 21px);
   line-height: 1.7;
 }
@@ -51,9 +52,9 @@
 }
 
 .home-page .hero-tags span {
-  border: 1px solid #d3deef;
-  background: #f4f8ff;
-  color: #334763;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+  color: #eaf7f5;
   border-radius: 8px;
   padding: 6px 11px;
   font-size: 13px;
@@ -70,20 +71,22 @@
 .home-page .grid-two {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 22px;
 }
 
 .home-page .grid-two article {
-  border-radius: 12px;
-  border: 1px solid #d7e0ef;
-  padding: 18px;
-  background: linear-gradient(180deg, #ffffff, #f8fbff);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 4px solid #0f766e;
+  padding: 18px 18px 18px 16px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(10, 27, 39, 0.78), rgba(9, 22, 32, 0.88));
 }
 
 .home-page .grid-two h2 {
   margin-top: 0;
   margin-bottom: 10px;
   font-size: 24px;
+  color: #f4fffd;
 }
 
 .home-page ol,
@@ -94,7 +97,7 @@
 
 .home-page li {
   margin-bottom: 8px;
-  color: #4f5e74;
+  color: #bfd1cd;
   line-height: 1.5;
 }
 
@@ -108,24 +111,26 @@
 .home-page .feature-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(180px, 1fr));
-  gap: 14px;
+  gap: 20px;
 }
 
 .home-page .feature-item {
-  border: 1px solid #d8e1f0;
-  border-radius: 12px;
-  padding: 14px;
-  background: #fbfdff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 3px solid #0f766e;
+  padding: 18px 18px 20px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(10, 27, 39, 0.78), rgba(9, 22, 32, 0.88));
 }
 
 .home-page .feature-item h3 {
   margin: 0 0 8px;
   font-size: 18px;
+  color: #f4fffd;
 }
 
 .home-page .feature-item p {
   margin: 0;
-  color: #52627a;
+  color: #bfd1cd;
   line-height: 1.55;
 }
 
@@ -136,39 +141,56 @@
 }
 
 .home-page .faq-list article {
-  border-radius: 12px;
-  border: 1px solid #dbe3f0;
-  background: #ffffff;
-  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 18px;
+  border-left: 3px solid #ca8a04;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(10, 27, 39, 0.78), rgba(9, 22, 32, 0.88));
+  cursor: pointer;
 }
 
 .home-page .faq-list h3 {
   margin: 0 0 8px;
   font-size: 18px;
+  color: #f4fffd;
 }
 
 .home-page .faq-list p {
   margin: 0;
-  color: #52627a;
+  color: #bfd1cd;
   line-height: 1.55;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+
+.home-page .faq-list article.open p {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.home-page .faq-list article.open h3 {
+  color: #0f766e;
 }
 
 .home-page .cta {
   background:
-    linear-gradient(120deg, #edf3ff, #f7f9ff),
+    linear-gradient(120deg, rgba(10, 27, 39, 0.96), rgba(12, 36, 50, 0.92)),
     repeating-linear-gradient(
       -45deg,
-      rgba(15, 78, 168, 0.05) 0px,
-      rgba(15, 78, 168, 0.05) 10px,
+      rgba(202, 138, 4, 0.12) 0px,
+      rgba(202, 138, 4, 0.12) 10px,
       transparent 10px,
       transparent 20px
     );
-  border-color: #cfd9ec;
+  border-color: rgba(255, 255, 255, 0.08);
+  padding: clamp(20px, 3.2vw, 34px);
 }
 
 .home-page .cta p {
   margin: 0;
-  color: #4f617e;
+  color: #bfd1cd;
   max-width: 60ch;
 }
 

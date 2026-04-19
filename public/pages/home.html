@@ -1,146 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio Builder | Home</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/base.css" />
     <link rel="stylesheet" href="/css/home.css" />
-  </head>
-  <body class="home-page">
+</head>
+
+<body class="home-page">
     <div class="background-shape bg-one"></div>
     <div class="background-shape bg-two"></div>
 
     <header class="navbar">
-      <a class="brand" href="/">Portfolio Builder</a>
-      <nav>
-        <a class="nav-link nav-active" href="/">Home</a>
-        <a class="nav-link" href="/discover">Discover</a>
-        <a class="nav-link" href="/login">Login</a>
-        <a class="btn-link" href="/register">Register</a>
-      </nav>
+        <a class="brand" href="/">Portfolio Builder</a>
+        <nav>
+            <a class="nav-link nav-active" href="/">Home</a>
+            <a class="nav-link" href="/discover">Discover</a>
+            <a class="nav-link" href="/dashboard" data-auth-only="true">Dashboard</a>
+            <a class="nav-link" href="/login" data-guest-only="true">Login</a>
+            <a class="btn-link" href="/register" data-guest-only="true">Register</a>
+            <button id="logout-btn" class="btn-link danger" type="button" data-auth-only="true">Logout</button>
+        </nav>
     </header>
 
     <main class="layout">
-      <section class="hero card intro-anim">
-        <p class="badge">For Freelancers, Creators, and Independent Experts</p>
-        <h1>Turn Your Work Into Client-Ready Portfolios</h1>
-        <p>
-          Portfolio Builder helps professionals launch clear, trustworthy,
-          and searchable profiles where clients can instantly understand
-          services, skills, proof of work, and social trust.
-        </p>
-        <div class="hero-tags">
-          <span>Professional Profiles</span>
-          <span>Skill-Based Discovery</span>
-          <span>Work Samples + Testimonials</span>
-        </div>
-        <div class="hero-actions">
-          <a class="btn" href="/register">Start Building</a>
-          <a class="btn secondary" href="/discover">Explore Talent</a>
-        </div>
-      </section>
+        <section class="hero card intro-anim">
+            <p class="badge">For Freelancers, Creators, and Independent Experts</p>
+            <h1>Turn Your Work Into Client-Ready Portfolios</h1>
+            <p>
+                Portfolio Builder helps professionals launch clear, trustworthy,
+                and searchable profiles where clients can instantly understand
+                services, skills, proof of work, and social trust.
+            </p>
+            <div class="hero-tags">
+                <span>Professional Profiles</span>
+                <span>Skill-Based Discovery</span>
+                <span>Work Samples + Testimonials</span>
+            </div>
+            <div class="hero-actions">
+                <a class="btn" href="/register">Start Building</a>
+                <a class="btn secondary" href="/discover">Explore Talent</a>
+            </div>
+        </section>
 
-      <section class="card grid-two intro-anim delay-1">
-        <article>
-          <h2>Why Professionals Choose It</h2>
-          <ul>
-            <li>Fast setup with focused fields that matter for clients</li>
-            <li>Clear presentation of services and specialization</li>
-            <li>Portfolio links that highlight real project outcomes</li>
-            <li>Easy updates whenever skills or offers change</li>
-          </ul>
-        </article>
-        <article>
-          <h2>For Hiring Teams and Clients</h2>
-          <ul>
-            <li>Filter creators by industry, service, and skill set</li>
-            <li>Review testimonials before reaching out</li>
-            <li>Compare multiple portfolios quickly</li>
-            <li>Find niche experts without browsing social feeds</li>
-          </ul>
-        </article>
-      </section>
+        <section class="card grid-two intro-anim delay-1">
+            <article>
+                <h2>Why Professionals Choose It</h2>
+                <ul>
+                    <li>Fast setup with focused fields that matter for clients</li>
+                    <li>Clear presentation of services and specialization</li>
+                    <li>Portfolio links that highlight real project outcomes</li>
+                    <li>Easy updates whenever skills or offers change</li>
+                </ul>
+            </article>
+            <article>
+                <h2>For Hiring Teams and Clients</h2>
+                <ul>
+                    <li>Filter creators by industry, service, and skill set</li>
+                    <li>Review testimonials before reaching out</li>
+                    <li>Compare multiple portfolios quickly</li>
+                    <li>Find niche experts without browsing social feeds</li>
+                </ul>
+            </article>
+        </section>
 
-      <section class="card features intro-anim">
-        <h2>Everything Needed for a Strong First Impression</h2>
-        <div class="feature-grid">
-          <article class="feature-item">
-            <h3>Profile Identity</h3>
-            <p>Set your name, headline, industry focus, and core service type.</p>
-          </article>
-          <article class="feature-item">
-            <h3>Skill Highlights</h3>
-            <p>Showcase practical skills in a format clients can scan in seconds.</p>
-          </article>
-          <article class="feature-item">
-            <h3>Project Proof</h3>
-            <p>Add work sample links so prospects can validate your quality.</p>
-          </article>
-          <article class="feature-item">
-            <h3>Client Trust</h3>
-            <p>Display testimonials to build credibility and increase conversion.</p>
-          </article>
-        </div>
-      </section>
+        <section class="card features intro-anim">
+            <h2>Everything Needed for a Strong First Impression</h2>
+            <div class="feature-grid">
+                <article class="feature-item">
+                    <h3>Profile Identity</h3>
+                    <p>Set your name, headline, industry focus, and core service type.</p>
+                </article>
+                <article class="feature-item">
+                    <h3>Skill Highlights</h3>
+                    <p>Showcase practical skills in a format clients can scan in seconds.</p>
+                </article>
+                <article class="feature-item">
+                    <h3>Project Proof</h3>
+                    <p>Add work sample links so prospects can validate your quality.</p>
+                </article>
+                <article class="feature-item">
+                    <h3>Client Trust</h3>
+                    <p>Display testimonials to build credibility and increase conversion.</p>
+                </article>
+            </div>
+        </section>
 
-      <section class="card grid-two intro-anim">
-        <article>
-          <h2>How It Works</h2>
-          <ol>
-            <li>Create account and log in</li>
-            <li>Build your portfolio in the dashboard</li>
-            <li>Publish your profile for discovery</li>
-            <li>Get found by the right clients faster</li>
-          </ol>
-        </article>
-        <article>
-          <h2>Platform Routes</h2>
-          <ul>
-            <li>Home: /</li>
-            <li>Register: /register</li>
-            <li>Login: /login</li>
-            <li>Dashboard: /dashboard</li>
-            <li>Discover: /discover</li>
-          </ul>
-        </article>
-      </section>
+        <section class="card grid-two intro-anim">
+            <article>
+                <h2>How It Works</h2>
+                <ol>
+                    <li>Create account and log in</li>
+                    <li>Build your portfolio in the dashboard</li>
+                    <li>Publish your profile for discovery</li>
+                    <li>Get found by the right clients faster</li>
+                </ol>
+            </article>
+            <article>
+                <h2>Platform Routes</h2>
+                <ul>
+                    <li>Home: /</li>
+                    <li>Register: /register</li>
+                    <li>Login: /login</li>
+                    <li>Dashboard: /dashboard</li>
+                    <li>Discover: /discover</li>
+                </ul>
+            </article>
+        </section>
 
-      <section class="card faq intro-anim">
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq-list">
-          <article>
-            <h3>Can I edit my portfolio later?</h3>
-            <p>Yes. You can log in anytime and update your profile details instantly.</p>
-          </article>
-          <article>
-            <h3>Can clients filter by specific skills?</h3>
-            <p>Yes. The discover page supports filtering by industry, service, and skills.</p>
-          </article>
-          <article>
-            <h3>Is this useful for different creative fields?</h3>
-            <p>Absolutely. It works for designers, developers, writers, marketers, and more.</p>
-          </article>
-        </div>
-      </section>
+        <section class="card faq intro-anim">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <article>
+                    <h3>Can I edit my portfolio later?</h3>
+                    <p>Yes. You can log in anytime and update your profile details instantly.</p>
+                </article>
+                <article>
+                    <h3>Can clients filter by specific skills?</h3>
+                    <p>Yes. The discover page supports filtering by industry, service, and skills.</p>
+                </article>
+                <article>
+                    <h3>Is this useful for different creative fields?</h3>
+                    <p>Absolutely. It works for designers, developers, writers, marketers, and more.</p>
+                </article>
+            </div>
+        </section>
 
-      <section class="card cta intro-anim">
-        <h2>Build Your Portfolio and Start Getting Better Leads</h2>
-        <p>
-          Create a profile that communicates value clearly and helps the right
-          clients choose you with confidence.
-        </p>
-        <div class="hero-actions">
-          <a class="btn" href="/register">Create Free Portfolio</a>
-          <a class="btn secondary" href="/discover">View Live Profiles</a>
-        </div>
-      </section>
+        <section class="card cta intro-anim">
+            <h2>Build Your Portfolio and Start Getting Better Leads</h2>
+            <p>
+                Create a profile that communicates value clearly and helps the right
+                clients choose you with confidence.
+            </p>
+            <div class="hero-actions">
+                <a class="btn" href="/register">Create Free Portfolio</a>
+                <a class="btn secondary" href="/discover">View Live Profiles</a>
+            </div>
+        </section>
     </main>
-  </body>
+    <script src="/js/storage.js"></script>
+    <script src="/js/navbar.js"></script>
+    <script src="/js/interactions.js"></script>
+</body>
+
 </html>

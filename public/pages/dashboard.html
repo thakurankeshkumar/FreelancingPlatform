@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio Builder | Dashboard</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,8 +23,10 @@
       <nav>
         <a class="nav-link" href="/">Home</a>
         <a class="nav-link" href="/discover">Discover</a>
-        <a class="nav-link nav-active" href="/dashboard">Dashboard</a>
-        <button id="logout-btn" class="btn-link danger" type="button">Logout</button>
+        <a class="nav-link nav-active" href="/dashboard" data-auth-only="true">Dashboard</a>
+        <a class="nav-link" href="/login" data-guest-only="true">Login</a>
+        <a class="btn-link" href="/register" data-guest-only="true">Register</a>
+        <button id="logout-btn" class="btn-link danger" type="button" data-auth-only="true">Logout</button>
       </nav>
     </header>
 
@@ -35,34 +38,55 @@
 
       <section class="card intro-anim delay-1">
         <h2>Create or Update Portfolio</h2>
-        <form id="portfolio-form" class="form-stack">
-          <label for="full-name">Full Name</label>
-          <input id="full-name" type="text" required />
+        <p class="subtext form-help">Fill each section below and save your profile. You can edit anytime.</p>
+        <form id="portfolio-form" class="form-grid">
+          <div class="field">
+            <label for="full-name">Full Name</label>
+            <input id="full-name" type="text" required />
+          </div>
 
-          <label for="headline">Professional Headline</label>
-          <input id="headline" type="text" required />
+          <div class="field">
+            <label for="headline">Professional Headline</label>
+            <input id="headline" type="text" required />
+          </div>
 
-          <label for="industry">Industry</label>
-          <input id="industry" type="text" required />
+          <div class="field">
+            <label for="industry">Industry</label>
+            <input id="industry" type="text" required />
+          </div>
 
-          <label for="service-type">Service Type</label>
-          <input id="service-type" type="text" required />
+          <div class="field">
+            <label for="service-type">Service Type</label>
+            <input id="service-type" type="text" required />
+          </div>
 
-          <label for="skills">Skills (comma separated)</label>
-          <input id="skills" type="text" required />
+          <div class="field">
+            <label for="skills">Skills (comma separated)</label>
+            <input id="skills" type="text" required />
+          </div>
 
-          <label for="sample-link">Work Sample Link</label>
-          <input id="sample-link" type="url" required />
+          <div class="field">
+            <label for="sample-link">Work Sample Link</label>
+            <input id="sample-link" type="url" required />
+          </div>
 
-          <label for="testimonial">Client Testimonial</label>
-          <textarea id="testimonial" rows="4"></textarea>
+          <div class="field field-wide">
+            <label for="testimonial">Client Testimonial</label>
+            <textarea id="testimonial" rows="4"></textarea>
+          </div>
 
-          <button class="btn" type="submit">Save Portfolio</button>
+          <div class="form-actions field-wide">
+            <button class="btn" type="submit">Save Portfolio</button>
+            <button id="delete-profile-btn" class="btn-link danger" type="button">Delete My Profile</button>
+            <button id="delete-account-btn" class="btn-link danger" type="button">Delete My Account</button>
+          </div>
         </form>
       </section>
     </main>
 
     <script src="/js/storage.js"></script>
+    <script src="/js/navbar.js"></script>
+    <script src="/js/interactions.js"></script>
     <script src="/js/dashboard.js"></script>
   </body>
 </html>

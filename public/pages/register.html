@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio Builder | Register</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,34 +23,93 @@
       <nav>
         <a class="nav-link" href="/">Home</a>
         <a class="nav-link" href="/discover">Discover</a>
-        <a class="nav-link" href="/login">Login</a>
-        <a class="btn-link" href="/register">Register</a>
+        <a class="nav-link" href="/dashboard" data-auth-only="true">Dashboard</a>
+        <a class="nav-link" href="/login" data-guest-only="true">Login</a>
+        <a class="btn-link" href="/register" data-guest-only="true">Register</a>
+        <button id="logout-btn" class="btn-link danger" type="button" data-auth-only="true">Logout</button>
       </nav>
     </header>
 
     <main class="layout center-layout">
-      <section class="card auth-card intro-anim">
-        <h1>Create Account</h1>
-        <p class="subtext">Your data is stored in browser local storage for this demo.</p>
+      <section class="auth-stage auth-stage-register intro-anim">
+        <aside class="auth-story auth-story-register">
+          <div class="auth-story-top">
+            <p class="auth-kicker">Create your profile</p>
+            <h1>Build a portfolio identity that clients can trust immediately.</h1>
+            <p class="subtext">
+              Create your account, publish your skills, and launch with a clear,
+              client-ready profile from day one.
+            </p>
+          </div>
 
-        <form id="register-form" class="form-stack">
-          <label for="reg-username">Username</label>
-          <input id="reg-username" type="text" required />
+          <div class="auth-signal-grid">
+            <article>
+              <strong>Quick setup</strong>
+              <span>Start with username and password</span>
+            </article>
+            <article>
+              <strong>Easy updates</strong>
+              <span>Refine services and work samples later</span>
+            </article>
+            <article>
+              <strong>Client-ready</strong>
+              <span>Designed to look polished from the start</span>
+            </article>
+          </div>
 
-          <label for="reg-password">Password</label>
-          <input id="reg-password" type="password" required />
+          <div class="auth-mini-board">
+            <div>
+              <span class="mini-label">Profile</span>
+              <strong>New Creator</strong>
+            </div>
+            <div>
+              <span class="mini-label">Next Step</span>
+              <strong>Complete Dashboard</strong>
+            </div>
+            <div>
+              <span class="mini-label">Access</span>
+              <strong>Free Account</strong>
+            </div>
+          </div>
 
-          <button type="submit" class="btn">Register</button>
-        </form>
+          <p class="small-line auth-switch-line">
+            Already have an account?
+            <a href="/login">Go to Login</a>
+          </p>
+        </aside>
 
-        <p class="small-line">
-          Already registered?
-          <a href="/login">Go to Login</a>
-        </p>
+        <section class="auth-form-stage">
+          <div class="auth-form-visual">
+            <div class="auth-orbit auth-orbit-one"></div>
+            <div class="auth-orbit auth-orbit-two"></div>
+            <div class="auth-orbit auth-orbit-three"></div>
+            <div class="auth-form-plate">
+              <p class="auth-kicker">Register</p>
+              <h2>Create account</h2>
+              <p class="subtext auth-note">Your data is stored in browser local storage for this demo.</p>
+
+              <form id="register-form" class="auth-form">
+                <div class="field">
+                  <label for="reg-username">Username</label>
+                  <input id="reg-username" type="text" placeholder="Choose a username" required />
+                </div>
+
+                <div class="field">
+                  <label for="reg-password">Password</label>
+                  <input id="reg-password" type="password" placeholder="Create a password" required />
+                </div>
+
+                <button type="submit" class="btn">Register</button>
+              </form>
+            </div>
+          </div>
+        </section>
       </section>
     </main>
 
     <script src="/js/storage.js"></script>
+    <script src="/js/navbar.js"></script>
+    <script src="/js/interactions.js"></script>
     <script src="/js/register.js"></script>
   </body>
 </html>

@@ -1,6 +1,8 @@
 const portfolioForm = document.getElementById("portfolio-form");
 const welcomeText = document.getElementById("welcome-text");
 const logoutBtn = document.getElementById("logout-btn");
+const deleteProfileBtn = document.getElementById("delete-profile-btn");
+const deleteAccountBtn = document.getElementById("delete-account-btn");
 
 const currentUser = getCurrentUser();
 if (!currentUser) {
@@ -9,12 +11,21 @@ if (!currentUser) {
 
 welcomeText.textContent = `Logged in as ${currentUser.username}`;
 
+function setDeleteButtonState() {
+  const hasPortfolio = getPortfolios().some((item) => item.userId === currentUser.id);
+  deleteProfileBtn.disabled = !hasPortfolio;
+}
+
 function loadPortfolio() {
   const existingPortfolio = getPortfolios().find(
     (item) => item.userId === currentUser.id
   );
 
-  if (!existingPortfolio) return;
+  if (!existingPortfolio) {
+    portfolioForm.reset();
+    setDeleteButtonState();
+    return;
+  }
 
   document.getElementById("full-name").value = existingPortfolio.fullName;
   document.getElementById("headline").value = existingPortfolio.headline;
@@ -23,6 +34,7 @@ function loadPortfolio() {
   document.getElementById("skills").value = existingPortfolio.skills.join(", ");
   document.getElementById("sample-link").value = existingPortfolio.sampleLink;
   document.getElementById("testimonial").value = existingPortfolio.testimonial;
+  setDeleteButtonState();
 }
 
 portfolioForm.addEventListener("submit", (event) => {
@@ -67,6 +79,52 @@ portfolioForm.addEventListener("submit", (event) => {
 
   writeStorage(STORAGE_KEYS.PORTFOLIOS, portfolios);
   alert("Portfolio saved successfully.");
+  setDeleteButtonState();
+});
+
+deleteProfileBtn.addEventListener("click", () => {
+  const existingPortfolio = getPortfolios().find(
+    (item) => item.userId === currentUser.id
+  );
+
+  if (!existingPortfolio) {
+    alert("No profile found to delete.");
+    return;
+  }
+
+  const confirmed = window.confirm(
+    "Are you sure you want to delete your profile? This cannot be undone."
+  );
+
+  if (!confirmed) return;
+
+  const updatedPortfolios = getPortfolios().filter(
+    (item) => item.userId !== currentUser.id
+  );
+
+  writeStorage(STORAGE_KEYS.PORTFOLIOS, updatedPortfolios);
+  portfolioForm.reset();
+  setDeleteButtonState();
+  alert("Your profile has been deleted.");
+});
+
+deleteAccountBtn.addEventListener("click", () => {
+  const confirmed = window.confirm(
+    "Are you sure you want to delete your account? This will remove your login and portfolio permanently."
+  );
+
+  if (!confirmed) return;
+
+  const updatedUsers = getUsers().filter((user) => user.id !== currentUser.id);
+  const updatedPortfolios = getPortfolios().filter(
+    (item) => item.userId !== currentUser.id
+  );
+
+  writeStorage(STORAGE_KEYS.USERS, updatedUsers);
+  writeStorage(STORAGE_KEYS.PORTFOLIOS, updatedPortfolios);
+  clearCurrentUser();
+  alert("Your account has been deleted.");
+  window.location.href = "/register";
 });
 
 logoutBtn.addEventListener("click", () => {
@@ -75,3 +133,4 @@ logoutBtn.addEventListener("click", () => {
 });
 
 loadPortfolio();
+setDeleteButtonState();
