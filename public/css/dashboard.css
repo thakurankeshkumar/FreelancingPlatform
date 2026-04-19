@@ -4,6 +4,17 @@
   margin: 0;
 }
 
+.dashboard-page .card {
+  border-radius: 22px;
+}
+
+.dashboard-page .card::after {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(145deg, rgba(10, 27, 39, 0.46), rgba(12, 36, 50, 0.42));
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+}
+
 .dashboard-page h1,
 .dashboard-page h2 {
   margin-top: 0;
@@ -59,6 +70,10 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+.dashboard-page .form-actions .btn-link {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .dashboard-page .form-actions .btn,
